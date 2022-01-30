@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block body %}
+    <div class="home-container">
+        <div class="home-title">
+            <svg xmlns="http://www.w3.org/2000/svg" class="home-icon" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+            </svg>
+            <span>
+                Welcome to Lorem Ipsum
+            </span>
+        </div>
+        <div class="home-button-container">
+            <a href="login" type="button" class="home-button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="home-button-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
+
+                  </path>
+                </svg>
+                Login</a>
+            <div class="home-break">
+            </div>
+            <a href="register" type="button" class="home-button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="home-button-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
+
+                  </path>
+                </svg>
+                Register</a>
+        </div>
+        <div class="home-image">
+
+        </div>
+    </div>
+{% endblock %}

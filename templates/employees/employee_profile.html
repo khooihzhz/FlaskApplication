@@ -1,0 +1,66 @@
+{% extends "employees/employee_base.html" %}
+
+{% block title %}
+    Employee Details
+{% endblock %}
+{% block body %}
+    <div class="wrap-container">
+         <div class="single-view-container">
+            <div class="single-container-header">
+                <a href='/employee' class="back-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="back-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7"></path>
+                    </svg>
+                    <span>Back</span>
+                </a>
+                <div class="function-button-container">
+                    <a href="/employee/edit" class="function-button function-edit">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="function-button-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                        </svg>
+                        Edit
+                    </a>
+                </div>
+            </div>
+            <div class="details-container">
+                <div class="details-container-header">
+                    <div class="details-title">
+                        Employee Details
+                    </div>
+                </div>
+                <div class="detail-rows-container">
+                    <p class="details-field">Employee ID</p>
+                    <p class="details-text">#{{ employee['employee_id'] }}</p>
+                </div>
+                <div class="detail-rows-container">
+                    <p class="details-field">Employee Name</p>
+                    <p class="details-text">{{ employee['employee_name'] }}</p>
+                </div>
+                <div class="detail-rows-container">
+                    <p class="details-field">E-mail</p>
+                    <p class="details-text">{{ employee['email'] }}</p>
+                </div>
+                <div class="detail-rows-container">
+                    <p class="details-field">Gender</p>
+                    <p class="details-text">{{ employee['gender']|capitalize }}</p>
+                </div>
+                <div class="detail-rows-container">
+                    <p class="details-field">Education</p>
+                    <p class="details-text"> {{ employee['academic_qualification']|capitalize }}</p>
+                </div>
+                <div class="detail-rows-container">
+                    <p class="details-field">Address</p>
+                    <p class="details-text">{{ employee['address'] }}</p>
+                </div>
+                <div class="detail-rows-container">
+                    <p class="details-field">Username</p>
+                    <p class="details-text">{{ employee['username'] }}</p>
+                </div>
+                <div class="detail-rows-container">
+                    <p class="details-field">Password</p>
+                    <p class="details-text"> {{ employee['password'] }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

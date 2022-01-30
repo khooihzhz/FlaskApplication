@@ -1,0 +1,75 @@
+{% extends "admins/admin_base.html" %}
+
+{% block title %}
+    Employees
+{% endblock %}
+{% block script %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded",function (){
+            $.ajax({
+                url:"/api/admins",
+                method:"GET",
+                success:function(data)
+                {
+                  $('#result').html(data);
+                  console.log("FUNCTION CALLED");
+                  $("#result").append(data.htmlResponse);
+                }
+               });
+        });
+
+    function liveSearch(value){
+            if (value === undefined){
+                value = "";
+            }
+            if (value !== ''){
+                value = value.trim(); // remove space around text
+                   $.ajax({
+                    url:"/api/employee/" + value,
+                    method:"GET",
+                    data:{query:value},
+                    success:function(data)
+                    {
+                      $('#result').html(data);
+                      $("#result").append(data.htmlResponse);
+                      console.log("FUNCTION CALLED LIVE");
+                    }
+                   });
+            }
+            else{
+                $.ajax({
+                    url:"/api/admins",
+                    method:"GET",
+                    success:function(data)
+                    {
+                        console.log("FUNCTION CALLED LIVE");
+                      $('#result').html(data);
+                      $("#result").append(data.htmlResponse);
+                    }
+                   });
+            }
+        }
+    </script>
+
+{% endblock %}
+{% block body %}
+    <div class="wrap-container">
+         <div class="view-container">
+            <div class="container-header">
+                <div>
+                    <p class="view-main-text">View Employees</p>
+                    <p class="view-sub-text">List of Employees</p>
+                </div>
+                <div class="search-bar">
+                    <input type="text" onkeyup="liveSearch(this.value)" class="search-bar-input" placeholder="Search Employees">
+                </div>
+            </div>
+            <div id="result" class="employee-card-container">
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

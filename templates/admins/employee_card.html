@@ -1,0 +1,36 @@
+{% for employee in employees %}
+     <div class="employee-card">
+         <a href="/admin/employees/view/{{ employee['employee_id'] }}" class="employee-link">
+
+            <div class="employee-id">
+                <span class="hash">
+                 &#35;
+                </span>
+                {{ employee['employee_id'] }}
+            </div>
+            <div class="employee-name">
+                {{ employee['employee_name']|title }}
+            </div>
+            <div class="employee-gender">
+                {% if employee['gender'] == 'male' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-gender-male" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M9.5 2a.5.5 0 0 1 0-1h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V2.707L9.871 6.836a5 5 0 1 1-.707-.707L13.293 2H9.5zM6 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"></path>
+                    </svg>
+                {% else %}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-gender-female" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M8 1a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM3 5a5 5 0 1 1 5.5 4.975V12h2a.5.5 0 0 1 0 1h-2v2.5a.5.5 0 0 1-1 0V13h-2a.5.5 0 0 1 0-1h2V9.975A5 5 0 0 1 3 5z"></path>
+                    </svg>
+                {% endif %}
+                <span>{{ employee['gender']|capitalize}}</span>
+            </div>
+            <div class="employee-education">
+                {{ employee['academic_qualification']|capitalize }}
+            </div>
+            <div class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="card-icon-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path>
+                </svg>
+            </div>
+        </a>
+     </div>
+{% endfor %}
